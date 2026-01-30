@@ -14,8 +14,1293 @@
     <!-- Font Awesome 6.5.1 - оптимизированная загрузка только нужных иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Подключение внешнего CSS файла -->
-    <link rel="stylesheet" href="kraska.css">
-    <!-- Микроразметка Schema.org для улучшения SEO -->
+     <style>
+   
+
+/* ============================================
+   CSS RESET & BASE VARIABLES
+   Современный сброс стилей и CSS переменные
+   ============================================ */
+:root {
+    /* Цветовая палитра - исправлена */
+    --coral: #FF6B57;
+    --coral-dark: #E85A47;
+    --coral-light: #FF8E7A;
+    --warm-blue: #4A7BFF;
+    --warm-blue-dark: #3A6BEF;
+    --soft-green: #5CB85C;
+    --neutral-light: #FAF9F7; /* Светло-бежевый фон body */
+    --neutral-medium: #F0EDE8;
+    --neutral-dark: #4A453E; /* Темный цвет для футера */
+    --neutral-text: #5A5349;
+    --accent-gold: #FFB74D;
+    
+    /* Тени для создания глубины */
+    --shadow-light: 0 4px 12px rgba(74, 69, 62, 0.08);
+    --shadow-medium: 0 8px 24px rgba(74, 69, 62, 0.12);
+    --shadow-strong: 0 12px 32px rgba(74, 69, 62, 0.15);
+    
+    /* Анимации */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 12px;
+    --border-radius-small: 8px;
+    
+    /* Оптимизация для мобильных */
+    --safe-area-inset-left: env(safe-area-inset-left);
+    --safe-area-inset-right: env(safe-area-inset-right);
+}
+
+/* Современный CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Базовые настройки для улучшения производительности */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ОСНОВНОЙ ФОН BODY - исправлен на светло-бежевый */
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--neutral-text);
+    background-color: var(--neutral-light); /* Это должен быть #FAF9F7 */
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Поддержка безопасных зон на iPhone X+ */
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+}
+
+/* Texture Background - оптимизированная версия с меньшей нагрузкой */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Упрощенный паттерн для лучшей производительности */
+    background-image: 
+        linear-gradient(45deg, rgba(255, 107, 87, 0.02) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(74, 123, 255, 0.02) 25%, transparent 25%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 30px;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ============================================
+   LAYOUT & CONTAINER SYSTEM
+   Адаптивная система контейнеров
+   ============================================ */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Адаптивные отступы с учетом безопасных зон */
+    padding: 0 max(16px, var(--safe-area-inset-left, 16px)) 0 max(16px, var(--safe-area-inset-right, 16px));
+}
+
+section {
+    padding: clamp(40px, 7vw, 70px) 0;
+}
+
+/* ============================================
+   TYPOGRAPHY SYSTEM
+   Масштабируемая типографика
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    color: var(--neutral-dark);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+    /* Анимированный градиент для заголовка - более плавный */
+    background: linear-gradient(135deg, var(--coral), var(--warm-blue), var(--coral));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    animation: gradientShift 8s ease-in-out infinite; /* Увеличена длительность для плавности */
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h2 {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    text-align: center;
+    margin-bottom: clamp(1.2rem, 3vw, 2rem);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--coral), var(--warm-blue));
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    margin-bottom: 0.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+}
+
+.section-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: var(--neutral-text);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+/* ============================================
+   HEADER & LOGO
+   Шапка сайта с логотипом
+   ============================================ */
+.site-header {
+    background: white;
+    padding: 15px 0;
+    box-shadow: var(--shadow-light);
+    position: relative;
+    z-index: 100;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+.logo-symbol {
+    width: clamp(36px, 6vw, 44px);
+    height: clamp(36px, 6vw, 44px);
+    background: linear-gradient(135deg, var(--coral), var(--warm-blue));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: var(--shadow-medium);
+    flex-shrink: 0;
+    /* Анимация логотипа при загрузке - исправлена */
+    animation: logoRotate 2s ease-in-out;
+}
+
+.logo-symbol::before {
+    content: '';
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    border: 2.5px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+}
+
+.logo-text {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+    color: var(--neutral-dark);
+}
+
+.logo-text span {
+    background: linear-gradient(135deg, var(--coral), var(--warm-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes logoRotate {
+    0% { transform: rotate(0deg) scale(0.8); opacity: 0.7; }
+    50% { transform: rotate(180deg) scale(1.1); opacity: 1; }
+    100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+/* ============================================
+   TICKER (БЕГУЩАЯ СТРОКА) - ИСПРАВЛЕННАЯ ВЕРСИЯ
+   Полностью переработанная бегущая строка для мобильных
+   ============================================ */
+.ticker {
+    background: linear-gradient(90deg, var(--coral), var(--warm-blue));
+    color: white;
+    padding: 12px 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-light);
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ticker-container {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: ticker 150s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.ticker-item {
+    display: inline-block;
+    margin: 0 clamp(12px, 2.5vw, 25px);
+    padding: 5px clamp(10px, 2vw, 14px);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.ticker-prefix {
+    font-weight: 600;
+    margin-right: 6px;
+    color: #FFE082;
+    font-size: 0.9em;
+    display: inline;
+}
+
+.ticker-approved {
+    background: rgba(92, 184, 92, 0.25);
+    border: 1px solid rgba(92, 184, 92, 0.4);
+    font-weight: 700;
+}
+
+/* Отключение анимации для пользователей, предпочитающих уменьшенное движение */
+@media (prefers-reduced-motion: reduce) {
+    .ticker-container {
+        animation: none;
+        padding-left: 0;
+    }
+}
+
+/* ============================================
+   BUTTON SYSTEM
+   Система кнопок с улучшенной доступностью
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+    color: white;
+    padding: clamp(14px, 2.5vw, 18px) clamp(28px, 4vw, 40px);
+    border-radius: var(--border-radius-small);
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-medium);
+    text-decoration: none;
+    text-align: center;
+    width: fit-content;
+    min-width: min(100%, 220px);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    /* Улучшение для мобильных */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--coral-dark), var(--coral));
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn:hover::before,
+.btn:focus::before,
+.btn:active::before {
+    opacity: 1;
+}
+
+.btn:hover,
+.btn:focus {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-strong);
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    transition-duration: 0.1s;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--warm-blue), var(--warm-blue-dark));
+}
+
+.btn-secondary::before {
+    background: linear-gradient(135deg, var(--warm-blue-dark), var(--warm-blue));
+}
+
+/* ============================================
+   HERO SECTION
+   Главная секция с H1 заголовком
+   ============================================ */
+.hero {
+    padding: clamp(40px, 8vw, 80px) 0;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(250, 249, 247, 0.95));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--neutral-dark);
+    margin-bottom: clamp(0.8rem, 2.5vw, 1.2rem);
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.hero-note {
+    font-size: 0.85rem;
+    color: #8A8278;
+    margin-top: clamp(1.2rem, 3vw, 1.8rem);
+    padding-top: 1rem;
+    border-top: 1px solid rgba(92, 83, 73, 0.1);
+    line-height: 1.6;
+}
+
+/* ============================================
+   OFFERS SECTION
+   Секция с предложениями МФО
+   ============================================ */
+.offers {
+    background-color: white;
+    border-radius: 20px;
+    margin-top: -20px;
+    position: relative;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(240, 237, 232, 0.8);
+    z-index: 2;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(16px, 2.5vw, 22px);
+}
+
+.offer-card {
+    background: white;
+    border-radius: 14px;
+    padding: clamp(18px, 3vw, 24px);
+    box-shadow: var(--shadow-light);
+    border: 2px solid var(--neutral-medium);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+    border-color: rgba(255, 107, 87, 0.3);
+}
+
+.offer-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+
+.offer-badge {
+    background: linear-gradient(135deg, var(--soft-green), #4CAF50);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
+    white-space: nowrap;
+}
+
+.offer-details {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.offer-details li {
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px dashed rgba(240, 237, 232, 0.8);
+    font-size: 0.95rem;
+}
+
+.offer-details li:last-child {
+    border-bottom: none;
+}
+
+.offer-details i {
+    color: var(--coral);
+    margin-right: 10px;
+    min-width: 20px;
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+.offer-details strong {
+    min-width: 130px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.offer-details span {
+    margin-left: auto;
+    text-align: right;
+    font-weight: 500;
+    color: var(--neutral-dark);
+}
+
+.offer-btn {
+    background: linear-gradient(135deg, var(--warm-blue), var(--warm-blue-dark));
+    margin-top: auto;
+    min-width: 100%;
+}
+
+/* ============================================
+   STEPS SECTION
+   Секция "Как получить деньги"
+   ============================================ */
+.steps {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 249, 247, 0.98));
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: clamp(16px, 2.5vw, 25px);
+    margin-top: 1.5rem;
+}
+
+.step {
+    text-align: center;
+    padding: clamp(20px, 3.5vw, 30px) clamp(16px, 2.5vw, 22px);
+    border-radius: var(--border-radius);
+    background: white;
+    box-shadow: var(--shadow-light);
+    border: 2px solid rgba(240, 237, 232, 0.8);
+    transition: var(--transition);
+}
+
+.step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(255, 107, 87, 0.2);
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(44px, 7vw, 52px);
+    height: clamp(44px, 7vw, 52px);
+    background: linear-gradient(135deg, rgba(255, 107, 87, 0.15), rgba(74, 123, 255, 0.15));
+    color: var(--coral);
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: 1.2rem;
+    font-family: 'Rubik', sans-serif;
+    border: 2px solid rgba(255, 107, 87, 0.2);
+}
+
+/* ============================================
+   REVIEWS SECTION
+   Секция отзывов с улучшенной функциональностью
+   ============================================ */
+.reviews {
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid rgba(240, 237, 232, 0.8);
+    box-shadow: var(--shadow-medium);
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: clamp(20px, 3vw, 30px);
+    margin-top: 1.5rem;
+}
+
+.review-card {
+    background: linear-gradient(135deg, rgba(250, 249, 247, 0.9), rgba(255, 255, 255, 0.95));
+    border-radius: var(--border-radius);
+    padding: clamp(20px, 3.5vw, 30px);
+    box-shadow: var(--shadow-light);
+    border: 2px solid rgba(240, 237, 232, 0.8);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 4rem;
+    color: rgba(255, 107, 87, 0.1);
+    font-family: serif;
+    line-height: 1;
+    opacity: 0.7;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(92, 184, 92, 0.3);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.review-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--warm-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: 12px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-light);
+}
+
+.review-info h4 {
+    margin-bottom: 4px;
+    color: var(--neutral-dark);
+    font-size: 1.1rem;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: #8A8278;
+}
+
+.review-rating {
+    color: #FFB74D;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.review-text {
+    line-height: 1.7;
+    color: var(--neutral-text);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* Скрытые отзывы */
+.reviews-hidden {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.reviews-hidden.show {
+    display: grid;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Кнопка показать/скрыть отзывы */
+.reviews-toggle {
+    display: block;
+    margin: 35px auto 0;
+    background: linear-gradient(135deg, var(--warm-blue), var(--warm-blue-dark));
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 250px;
+}
+
+.reviews-toggle:hover {
+    transform: translateY(-3px);
+}
+
+.reviews-toggle i {
+    margin-left: 8px;
+    transition: var(--transition);
+    font-size: 0.9em;
+}
+
+.reviews-toggle.expanded i {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   FEATURES SECTION
+   Секция преимуществ
+   ============================================ */
+.features {
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid rgba(240, 237, 232, 0.8);
+    box-shadow: var(--shadow-medium);
+    margin-top: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(16px, 2.5vw, 22px);
+}
+
+.feature-card {
+    padding: clamp(20px, 3.5vw, 28px);
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(250, 249, 247, 0.8), rgba(255, 255, 255, 0.9));
+    border: 2px solid rgba(240, 237, 232, 0.8);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    border-color: rgba(255, 107, 87, 0.3);
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-4px);
+    background: white;
+}
+
+.feature-icon {
+    width: clamp(52px, 7vw, 60px);
+    height: clamp(52px, 7vw, 60px);
+    background: linear-gradient(135deg, rgba(255, 107, 87, 0.1), rgba(74, 123, 255, 0.1));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    color: var(--coral);
+    font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+    border: 2px solid rgba(255, 107, 87, 0.15);
+}
+
+/* ============================================
+   BASIC QUESTIONS SECTION
+   Блок основных вопросов
+   ============================================ */
+.basic-questions {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 249, 247, 0.98));
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.questions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: clamp(20px, 3vw, 30px);
+    margin-top: 1.5rem;
+}
+
+.question-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: clamp(20px, 3.5vw, 30px);
+    box-shadow: var(--shadow-light);
+    border: 2px solid rgba(240, 237, 232, 0.8);
+    transition: var(--transition);
+}
+
+.question-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(74, 123, 255, 0.2);
+}
+
+.question-icon {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, rgba(74, 123, 255, 0.1), rgba(255, 107, 87, 0.1));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    color: var(--warm-blue);
+    font-size: 1.6rem;
+}
+
+/* ============================================
+   FAQ SECTION
+   Аккордеон с часто задаваемыми вопросами
+   ============================================ */
+.faq {
+    position: relative;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-radius: var(--border-radius);
+    background: white;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-light);
+    border: 2px solid rgba(240, 237, 232, 0.8);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-item:hover {
+    border-color: rgba(255, 107, 87, 0.2);
+    box-shadow: var(--shadow-medium);
+}
+
+.faq-question {
+    padding: clamp(18px, 2.5vw, 24px);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--neutral-dark);
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    background: white;
+    transition: var(--transition);
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    border: none;
+    text-align: left;
+    position: relative;
+    /* Улучшение для мобильных */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.faq-question:hover,
+.faq-question:focus {
+    background: linear-gradient(135deg, rgba(255, 107, 87, 0.03), rgba(74, 123, 255, 0.03));
+    color: var(--coral);
+    outline: none;
+}
+
+.faq-question::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(240, 237, 232, 0.8), transparent);
+}
+
+.faq-answer {
+    padding: 0 clamp(18px, 2.5vw, 24px);
+    color: var(--neutral-text);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 clamp(18px, 2.5vw, 24px) clamp(18px, 2.5vw, 24px);
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.faq-toggle {
+    font-size: 1.4rem;
+    color: var(--coral);
+    transition: var(--transition);
+    min-width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-weight: 300;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+    color: var(--coral-dark);
+}
+
+/* ============================================
+   FOOTER
+   ПОДВАЛ САЙТА - ИСПРАВЛЕН ЦВЕТ ФОНА
+   ============================================ */
+footer {
+    /* Основной цвет фона футера - темный градиент */
+    background: linear-gradient(135deg, var(--neutral-dark), #3A352F);
+    color: #E8E4DD;
+    padding: clamp(40px, 7vw, 60px) 0 clamp(25px, 4vw, 30px);
+    border-radius: 0;
+    position: relative;
+    margin-top: auto;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--coral), var(--warm-blue));
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    gap: clamp(25px, 4vw, 40px);
+    margin-bottom: clamp(25px, 4vw, 40px);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+}
+
+.footer-logo-symbol {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--coral), var(--warm-blue));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.footer-logo-symbol::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+}
+
+.footer-logo-text {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.footer-logo-text span {
+    background: linear-gradient(135deg, var(--coral), var(--warm-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-tagline {
+    font-size: 0.95rem;
+    color: #C8C2B8;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+}
+
+.footer-contact h5,
+.footer-links h5 {
+    color: white;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 8px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.footer-contact h5::after,
+.footer-links h5::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    background: var(--coral);
+    border-radius: 2px;
+}
+
+.footer-contact p {
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.footer-contact i {
+    color: var(--coral);
+    margin-right: 10px;
+    width: 18px;
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: #C8C2B8;
+    transition: var(--transition);
+    display: inline-block;
+    padding: 2px 0;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+    color: var(--coral);
+    transform: translateX(5px);
+    outline: none;
+}
+
+.legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #A0988C;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   Вспомогательные классы
+   ============================================ */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   Оптимизация для мобильных устройств
+   ============================================ */
+@media (max-width: 768px) {
+    /* Бегущая строка для мобильных - фикс для Safari */
+    .ticker-container {
+        animation: ticker 120s linear infinite;
+        padding-left: 100%;
+    }
+    
+    /* Улучшенные touch-цели */
+    .btn,
+    .faq-question,
+    .offer-btn,
+    .reviews-toggle {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Улучшенная читаемость текста */
+    body {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    /* Улучшенные отступы для карточек */
+    .offer-card,
+    .step,
+    .feature-card,
+    .review-card,
+    .question-card {
+        padding: 18px;
+    }
+    
+    /* Адаптация деталей предложений */
+    .offer-details li {
+        flex-wrap: wrap;
+    }
+    
+    .offer-details strong {
+        min-width: 100%;
+        margin-bottom: 4px;
+    }
+    
+    .offer-details span {
+        margin-left: 0;
+        text-align: left;
+        width: 100%;
+    }
+    
+    /* Оптимизация аккордеона */
+    .faq-question {
+        padding: 16px 18px;
+    }
+    
+    .faq-answer {
+        padding: 0 18px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 18px 16px;
+    }
+    
+    /* Улучшение иконок для мобильных */
+    .offer-details i,
+    .footer-contact i {
+        font-size: 1.1rem !important;
+        min-width: 24px !important;
+    }
+    
+    .feature-icon {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .feature-icon i {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Оптимизация отзывов */
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .review-avatar {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* Оптимизация футера */
+    .footer-contact p {
+        flex-wrap: wrap;
+    }
+    
+    /* Анимация логотипа для мобильных */
+    .logo-symbol {
+        animation: logoRotateMobile 2s ease-in-out;
+    }
+    
+    /* ФИКС ДЛЯ КНОПОК И FAQ НА МОБИЛЬНЫХ - УБИРАЕМ ВЫДЕЛЕНИЕ ТЕКСТА ПРИ КАСАНИИ */
+    .btn,
+    .faq-question,
+    .reviews-toggle {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+    
+    @keyframes logoRotateMobile {
+        0% { transform: rotate(0deg) scale(0.8); opacity: 0.7; }
+        50% { transform: rotate(180deg) scale(1.05); opacity: 1; }
+        100% { transform: rotate(360deg) scale(1); opacity: 1; }
+    }
+    
+    /* ФИКС ДЛЯ FAQ НА МОБИЛЬНЫХ - УВЕЛИЧИВАЕМ ОБЛАСТЬ КАСАНИЯ */
+    .faq-question {
+        padding: 18px !important;
+    }
+    
+    /* ФИКС ДЛЯ ОТЗЫВОВ - УВЕЛИЧИВАЕМ ОБЛАСТЬ КАСАНИЯ КНОПКИ */
+    .reviews-toggle {
+        padding: 16px 24px !important;
+        min-height: 54px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Дальнейшая оптимизация для маленьких экранов */
+    section {
+        padding: 30px 0;
+    }
+    
+    .container {
+        padding: 0 14px;
+    }
+    
+    .hero {
+        padding: 30px 0;
+    }
+    
+    .offers {
+        margin-top: -10px;
+    }
+    
+    /* Упрощение теней для производительности */
+    .offer-card,
+    .step,
+    .feature-card,
+    .review-card,
+    .question-card,
+    .faq-item {
+        box-shadow: var(--shadow-light);
+    }
+    
+    .btn {
+        min-width: 100%;
+    }
+    
+    /* ФИКС ДЛЯ FAQ НА ОЧЕНЬ МАЛЕНЬКИХ ЭКРАНАХ */
+    .faq-question {
+        font-size: 1rem !important;
+        padding: 16px !important;
+    }
+    
+    .faq-toggle {
+        font-size: 1.6rem !important;
+        margin-left: 10px !important;
+    }
+    
+    /* ФИКС ДЛЯ БЕГУЩЕЙ СТРОКИ НА ОЧЕНЬ МАЛЕНЬКИХ ЭКРАНАХ */
+    .ticker-item {
+        margin: 0 10px;
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .ticker-prefix {
+        font-size: 0.8em;
+    }
+}
+</style>
+
+
+ <!-- Микроразметка Schema.org для улучшения SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -149,8 +1434,8 @@
                 <article class="offer-card">
                     <div class="offer-card-header">
 
-                        <h3>Vivus <sub><h6>реклама</h6></sub></h3>
-                        <span class="offer-badge">7 дней без процентов</span> 
+                        <h3>Vivus</h3> 
+                        <span class="offer-badge">7 дней без процентов</span> <h6>реклама</h6>
                     
                     </div>
                     <ul class="offer-details">
@@ -186,7 +1471,7 @@
                     <ul class="offer-details">
                         <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>35 – 60 тыс. ₽</span></li>
                         <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span> 50 дней</span></li>
-                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>0,49 – 0,69%</span></li>
+                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>14 – 20%</span></li>
                         <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>1-5 минут</span></li>
                     </ul>
                     <!-- ИСПРАВЛЕНА КНОПКА: РАБОТАЮЩАЯ ССЫЛКА С АТРИБУТАМИ БЕЗОПАСНОСТИ -->
@@ -650,7 +1935,7 @@
                     <h5>Информация</h5>
                     <ul>
                         <li><a>Правовая информация</a></li>
-                        <a>Изучите все условия займа на сайте или сайте партнера. Оценивайте свои финансовые возможности и риски. Нажатие на кнопки "Получить деньги", а также последующее заполнение тех или иных форм, не накладывает на владельцев сайта никаких обязательств.</a>
+                        <a>Изучите все условия займа на сайте или саяйте партнера. Оценивайте свои финансовые возможности и риски. Нажатие на кнопки "Получить деньги", а также последующее заполнение тех или иных форм, не накладывает на владельцев сайта никаких обязательств.</a>
                         
                     </ul>
                 </div>
@@ -687,12 +1972,258 @@
                 </p>
                 <p>Общество с ограниченной ответственностью Микрокредитная компания «М-ДЕНЬГИ» (ООО МКК «М-ДЕНЬГИ»): ИНН 9703151232, ОГРН 1237700493216
                 </p>
+
+
+
+
+
+
+                <p>Предложение не является офертой. Кредитор принимает решение на основе ваших данных. Процентные ставки и условия уточняйте на сайте партнёра. Сервис предоставляет информацию о финансовых продуктах и не является кредитной организацией.</p>
                 <p style="margin-top: 20px; color: #A0988C;">&copy;2026 Деньги сразу. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
     <!-- Подключение внешнего JavaScript файла -->
-    <script src="anima.js"></script>
+    <script>
+// ============================================
+// DOM READY EVENT
+// Основной код, выполняемый после загрузки DOM
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Деньгисразу: DOM загружен, инициализация компонентов...');
+    
+    // ============================================
+    // TICKER GENERATION - ПОЛНОСТЬЮ ПЕРЕРАБОТАННЫЙ КОД
+    // ============================================
+    const tickerContent = document.getElementById('tickerContent');
+    if (tickerContent) {
+        // Функция для генерации случайного числа одобренных заявок
+        function getRandomApprovals() {
+            const numbers = [245, 312, 189, 278, 421, 356, 198, 267, 389, 423, 156, 287, 334, 401, 289];
+            return numbers[Math.floor(Math.random() * numbers.length)];
+        }
+        
+        // Создаем элементы бегущей строки
+        const tickerItems = [];
+        
+        // Элементы "Получили только что"
+        const names = [
+            'Леонид', 'Елена', 'Евгений', 'Анна', 'Сергей', 'Мария', 'Дмитрий', 'Ольга', 'Игорь', 'Наталья',
+            'Алексей', 'Виктория', 'Павел', 'Светлана', 'Михаил', 'Татьяна', 'Андрей', 'Юлия', 'Роман', 'Екатерина'
+        ];
+        
+        const amounts = [
+            '15.000', '20.000', '25.000', '30.000', '35.000', '40.000', '45.000', '50.000', '55.000', '60.000',
+            '18.000', '22.000', '28.000', '32.000', '38.000', '42.000', '48.000', '52.000', '58.000', '65.000'
+        ];
+        
+        // Генерируем 15 элементов "Получили только что"
+        for (let i = 0; i < 15; i++) {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const amount = amounts[Math.floor(Math.random() * amounts.length)];
+            tickerItems.push(`<span class="ticker-item"><span class="ticker-prefix">Получили только что:</span> ${name} - ${amount} ₽</span>`);
+        }
+        
+        // Генерируем 5 элементов "Одобрили сейчас"
+        for (let i = 0; i < 5; i++) {
+            tickerItems.push(`<span class="ticker-item ticker-approved"><span class="ticker-prefix">Одобрили сейчас:</span> ${getRandomApprovals()} заявок</span>`);
+        }
+        
+        // Функция для перемешивания массива
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+        
+        // Перетасовываем элементы
+        let shuffledItems = shuffleArray(tickerItems);
+        
+        // Создаем HTML для бегущей строки (3 копии для бесшовности)
+        let tickerHTML = '';
+        for (let i = 0; i < 3; i++) {
+            shuffledItems.forEach(item => {
+                tickerHTML += item;
+            });
+        }
+        
+        tickerContent.innerHTML = tickerHTML;
+        
+        // Пауза при наведении для улучшения UX (десктоп)
+        const ticker = document.querySelector('.ticker');
+        ticker.addEventListener('mouseenter', () => {
+            tickerContent.style.animationPlayState = 'paused';
+        });
+        
+        ticker.addEventListener('mouseleave', () => {
+            tickerContent.style.animationPlayState = 'running';
+        });
+        
+        // Пауза при касании для мобильных
+        ticker.addEventListener('touchstart', () => {
+            tickerContent.style.animationPlayState = 'paused';
+        });
+        
+        ticker.addEventListener('touchend', () => {
+            setTimeout(() => {
+                tickerContent.style.animationPlayState = 'running';
+            }, 1500);
+        });
+        
+        // Оптимизация производительности для мобильных
+        tickerContent.style.willChange = 'transform';
+        tickerContent.style.backfaceVisibility = 'hidden';
+        tickerContent.style.transform = 'translate3d(0, 0, 0)';
+    }
+    
+    // ============================================
+    // LOGO ANIMATION FIX
+    // ============================================
+    const logoSymbol = document.querySelector('.logo-symbol');
+    if (logoSymbol) {
+        logoSymbol.style.animation = 'none';
+        void logoSymbol.offsetWidth;
+        logoSymbol.style.animation = 'logoRotate 2s ease-in-out';
+        
+        if (window.innerWidth <= 768) {
+            logoSymbol.style.animation = 'logoRotateMobile 2s ease-in-out';
+        }
+    }
+    
+    // ============================================
+    // FAQ ACCORDION
+    // ============================================ */
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFaqItem(question.parentElement);
+        });
+        
+        question.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFaqItem(question.parentElement);
+            }
+        });
+    });
+    
+    function toggleFaqItem(item) {
+        const isActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+            if (activeItem !== item) {
+                activeItem.classList.remove('active');
+            }
+        });
+        
+        item.classList.toggle('active');
+    }
+    
+    // ============================================
+    // REVIEWS TOGGLE
+    // ============================================
+    const toggleReviewsBtn = document.getElementById('toggleReviews');
+    const hiddenReviews = document.getElementById('hiddenReviews');
+    
+    if (toggleReviewsBtn && hiddenReviews) {
+        toggleReviewsBtn.addEventListener('click', toggleReviews);
+        
+        function toggleReviews() {
+            hiddenReviews.classList.toggle('show');
+            
+            if (hiddenReviews.classList.contains('show')) {
+                toggleReviewsBtn.innerHTML = 'Скрыть отзывы <i class="fas fa-chevron-up"></i>';
+                toggleReviewsBtn.classList.add('expanded');
+            } else {
+                toggleReviewsBtn.innerHTML = 'Показать больше отзывов <i class="fas fa-chevron-down"></i>';
+                toggleReviewsBtn.classList.remove('expanded');
+            }
+        }
+    }
+    
+    // ============================================
+    // BUTTON HANDLERS
+    // ============================================
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            if (button.getAttribute('href') === '#') {
+                e.preventDefault();
+                console.log('Кнопка "' + button.textContent + '" нажата');
+                
+                button.style.transform = 'translateY(1px)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 150);
+            }
+        });
+    });
+    
+    console.log('Деньгисразу: все компоненты инициализированы успешно');
+});
+
+// ============================================
+// LOAD EVENT
+// ============================================
+window.addEventListener('load', () => {
+    console.log('Деньгисразу: страница полностью загружена');
+    
+    // Гарантированный запуск бегущей строки после загрузки
+    //const tickerContent = document.getElementById('tickerContent');
+    if (tickerContent) {
+        // Перезапускаем анимацию для надежности
+        tickerContent.style.animation = 'none';
+        void tickerContent.offsetWidth;
+        
+        // Устанавливаем анимацию снова
+        tickerContent.style.animation = 'ticker 150s linear infinite';
+        tickerContent.style.animationPlayState = 'running';
+        
+        // Особые настройки для Safari на iOS
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+            tickerContent.style.transform = 'translate3d(0, 0, 0)';
+            tickerContent.style.webkitTransform = 'translate3d(0, 0, 0)';
+        }
+    }
+    
+    // Отключение анимации для пользователей с prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const tickerContent = document.getElementById('tickerContent');
+        if (tickerContent) {
+            tickerContent.style.animation = '';
+            tickerContent.style.paddingLeft = '0';
+        }
+    }
+
+    // Оптимизация анимации бегущей строки
+            const tickerContent = document.querySelector('.ticker-content');
+            if (tickerContent) {
+                // Клонируем контент для бесшовной анимации
+                tickerContent.innerHTML += tickerContent.innerHTML;
+                
+                // Пауза анимации при наведении
+                const ticker = document.querySelector('.ticker');
+                ticker.addEventListener('mouseenter', () => {
+                    tickerContent.style.animationPlayState = 'paused';
+                });
+                
+                ticker.addEventListener('mouseleave', () => {
+                    tickerContent.style.animationPlayState = 'running';
+                });
+                
+                // Оптимизация производительности
+                tickerContent.style.willChange = 'transform';
+            }
+});
+
+
+
+
+    </script>
 </body>
 </html>
