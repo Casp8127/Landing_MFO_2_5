@@ -4,106 +4,181 @@
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Деньгисразу: DOM загружен, инициализация компонентов...');
+
+  // ============================================
+// КНОПКА НАВЕРХ
+// ============================================
+function initScrollTop() {
+    const btn = document.createElement('button');
+    btn.className = 'scroll-top-btn';
+    btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    btn.setAttribute('aria-label', 'Наверх');
+    document.body.appendChild(btn);
     
-    // ============================================
-    // TICKER GENERATION - ПОЛНОСТЬЮ ПЕРЕРАБОТАННЫЙ КОД
-    // ============================================
-    const tickerContent = document.getElementById('tickerContent');
-    if (tickerContent) {
-        // Функция для генерации случайного числа одобренных заявок
-        function getRandomApprovals() {
-            const numbers = [245, 312, 189, 278, 421, 356, 198, 267, 389, 423, 156, 287, 334, 401, 289];
-            return numbers[Math.floor(Math.random() * numbers.length)];
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btn.classList.add('show');
+        } else {
+            btn.classList.remove('show');
         }
-        
-        // Создаем элементы бегущей строки
-        const tickerItems = [];
-        
-        // Элементы "Получили только что"
-        const names = [
-            'Леонид', 'Елена', 'Евгений', 'Анна', 'Сергей', 'Мария', 'Дмитрий', 'Ольга', 'Игорь', 'Наталья',
-            'Алексей', 'Виктория', 'Павел', 'Светлана', 'Михаил', 'Татьяна', 'Андрей', 'Юлия', 'Роман', 'Екатерина'
-        ];
-        
-        const amounts = [
-            '15.000', '20.000', '25.000', '30.000', '35.000', '40.000', '45.000', '50.000', '55.000', '60.000',
-            '18.000', '22.000', '28.000', '32.000', '38.000', '42.000', '48.000', '52.000', '58.000', '65.000'
-        ];
-        
-        // Генерируем 15 элементов "Получили только что"
-        for (let i = 0; i < 15; i++) {
-            const name = names[Math.floor(Math.random() * names.length)];
-            const amount = amounts[Math.floor(Math.random() * amounts.length)];
-            tickerItems.push(`<span class="ticker-item"><span class="ticker-prefix">Получили только что:</span> ${name} - ${amount} ₽</span>`);
-        }
-        
-        // Генерируем 5 элементов "Одобрили сейчас"
-        for (let i = 0; i < 5; i++) {
-            tickerItems.push(`<span class="ticker-item ticker-approved"><span class="ticker-prefix">Одобрили сейчас:</span> ${getRandomApprovals()} заявок</span>`);
-        }
-        
-        // Функция для перемешивания массива
-        function shuffleArray(array) {
-            const shuffled = [...array];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled;
-        }
-        
-        // Перетасовываем элементы
-        let shuffledItems = shuffleArray(tickerItems);
-        
-        // Создаем HTML для бегущей строки (3 копии для бесшовности)
-        let tickerHTML = '';
-        for (let i = 0; i < 3; i++) {
-            shuffledItems.forEach(item => {
-                tickerHTML += item;
-            });
-        }
-        
-        tickerContent.innerHTML = tickerHTML;
-        
-        // Пауза при наведении для улучшения UX (десктоп)
-        const ticker = document.querySelector('.ticker');
-        ticker.addEventListener('mouseenter', () => {
-            tickerContent.style.animationPlayState = 'paused';
-        });
-        
-        ticker.addEventListener('mouseleave', () => {
-            tickerContent.style.animationPlayState = 'running';
-        });
-        
-        // Пауза при касании для мобильных
-        ticker.addEventListener('touchstart', () => {
-            tickerContent.style.animationPlayState = 'paused';
-        });
-        
-        ticker.addEventListener('touchend', () => {
-            setTimeout(() => {
-                tickerContent.style.animationPlayState = 'running';
-            }, 1500);
-        });
+    });
+    
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+initScrollTop();
+    
         
         // Оптимизация производительности для мобильных
         tickerContent.style.willChange = 'transform';
         tickerContent.style.backfaceVisibility = 'hidden';
         tickerContent.style.transform = 'translate3d(0, 0, 0)';
+
+    // ============================================
+    // АНИМАЦИЯ ЭЛЕМЕНТОВ ПРИ ПРОКРУТКЕ (SCROLL REVEAL)
+    // ============================================
+    
+    // Функция для проверки видимости элемента
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        return rect.top <= windowHeight - 100 && rect.bottom >= 0;
     }
     
-    // ============================================
-    // LOGO ANIMATION FIX
-    // ============================================
-    const logoSymbol = document.querySelector('.logo-symbol');
-    if (logoSymbol) {
-        logoSymbol.style.animation = 'none';
-        void logoSymbol.offsetWidth;
-        logoSymbol.style.animation = 'logoRotate 2s ease-in-out';
+    // Добавляем класс reveal к элементам, которые хотим анимировать при скролле
+    const elementsToReveal = document.querySelectorAll('.offer-card, .feature-card, .question-card, .step');
+    
+    elementsToReveal.forEach(el => {
+        el.classList.add('reveal');
+    });
+    
+    // Функция проверки и активации анимации
+    function checkReveal() {
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => {
+            if (isElementInViewport(el) && !el.classList.contains('active')) {
+                el.classList.add('active');
+            }
+        });
+    }
+    
+    // Запускаем проверку при загрузке и при скролле
+    window.addEventListener('load', checkReveal);
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('resize', checkReveal);
+    
+    // Дополнительная анимация для карточек при наведении (микро-взаимодействия)
+    const allCards = document.querySelectorAll('.offer-card, .feature-card, .question-card');
+    
+    allCards.forEach(card => {
+        card.addEventListener('mouseenter', function(e) {
+            // Легкая пульсация тени
+            this.style.transition = 'all 0.3s ease';
+        });
         
-        if (window.innerWidth <= 768) {
-            logoSymbol.style.animation = 'logoRotateMobile 2s ease-in-out';
-        }
+        card.addEventListener('mouseleave', function(e) {
+            this.style.transition = 'all 0.3s ease';
+        });
+    });
+    
+    // Анимация для кнопок при нажатии
+    const allButtons = document.querySelectorAll('.btn');
+    allButtons.forEach(btn => {
+        btn.addEventListener('mousedown', function() {
+            this.style.transform = 'scale(0.97)';
+        });
+        
+        btn.addEventListener('mouseup', function() {
+            this.style.transform = '';
+        });
+        
+        btn.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Плавное появление заголовков
+    const headers = document.querySelectorAll('h2');
+    headers.forEach((header, index) => {
+        header.style.opacity = '0';
+        header.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s forwards`;
+    });
+    
+    const sectionSubtitles = document.querySelectorAll('.section-subtitle');
+    sectionSubtitles.forEach((sub, index) => {
+        sub.style.opacity = '0';
+        sub.style.animation = `fadeInUp 0.5s ease-out ${index * 0.1 + 0.2}s forwards`;
+    });
+    
+    console.log('Анимации элементов активированы');
+    }
+    
+        // ============================================
+    // ДОПОЛНИТЕЛЬНАЯ АНИМАЦИЯ ЛОГОТИПА
+    // ============================================
+    
+    const logo = document.querySelector('.logo');
+    const logoSymbol = document.querySelector('.logo-symbol');
+    
+    if (logo) {
+        // Эффект при клике на логотип (возврат на главную с анимацией)
+        logo.addEventListener('click', function(e) {
+            // Если это не ссылка на главную страницу, добавляем анимацию перехода
+            if (window.location.pathname !== '/' && !window.location.pathname.includes('index.html')) {
+                e.preventDefault();
+                
+                // Добавляем анимацию исчезновения
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.3s ease';
+                
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                }, 300);
+            }
+        });
+        
+        // Эффект "пульсации" при загрузке страницы
+        setTimeout(() => {
+            logoSymbol.style.animation = 'none';
+            void logoSymbol.offsetWidth; // Триггер перерисовки
+            logoSymbol.style.animation = 'subtlePulse 0.5s ease';
+        }, 500);
+        
+        // Сброс анимации после завершения
+        logoSymbol.addEventListener('animationend', () => {
+            logoSymbol.style.animation = '';
+        });
+        
+        // Эффект при наведении на логотип (звуковое сопровождение - опционально)
+        // Раскомментируйте если нужен звук (но лучше без звука)
+        /*
+        logo.addEventListener('mouseenter', () => {
+            // Только если пользователь взаимодействовал со страницей
+            // new Audio('path/to/click.mp3').play().catch(e => console.log('Audio not supported'));
+        });
+        */
+        
+        // Анимация при скролле (логотип уменьшается при скролле вниз)
+        let lastScrollTop = 0;
+        const header = document.querySelector('.site-header');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.style.padding = '12px 0';
+                header.style.transition = 'padding 0.3s ease';
+            } else {
+                header.style.padding = '16px 0';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Эффект "взгляда" при загрузке страницы
+        console.log('Анимация логотипа активирована');
     }
     
     // ============================================
@@ -136,29 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         item.classList.toggle('active');
     }
-    
-    // ============================================
-    // REVIEWS TOGGLE
-    // ============================================
-    const toggleReviewsBtn = document.getElementById('toggleReviews');
-    const hiddenReviews = document.getElementById('hiddenReviews');
-    
-    if (toggleReviewsBtn && hiddenReviews) {
-        toggleReviewsBtn.addEventListener('click', toggleReviews);
-        
-        function toggleReviews() {
-            hiddenReviews.classList.toggle('show');
-            
-            if (hiddenReviews.classList.contains('show')) {
-                toggleReviewsBtn.innerHTML = 'Скрыть отзывы <i class="fas fa-chevron-up"></i>';
-                toggleReviewsBtn.classList.add('expanded');
-            } else {
-                toggleReviewsBtn.innerHTML = 'Показать больше отзывов <i class="fas fa-chevron-down"></i>';
-                toggleReviewsBtn.classList.remove('expanded');
-            }
-        }
-    }
-    
     // ============================================
     // BUTTON HANDLERS
     // ============================================
@@ -231,4 +283,47 @@ window.addEventListener('load', () => {
                 // Оптимизация производительности
                 tickerContent.style.willChange = 'transform';
             }
+
+                // ============================================
+    // ПЛАВАЮЩАЯ КНОПКА "НАВЕРХ" ДЛЯ МОБИЛЬНЫХ
+    // ============================================
+    function addScrollTopButton() {
+        // Проверяем, существует ли уже кнопка
+        if (document.querySelector('.scroll-top-btn')) return;
+        
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-top-btn';
+        scrollBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        scrollBtn.setAttribute('aria-label', 'Наверх');
+        document.body.appendChild(scrollBtn);
+        
+        // Показываем/скрываем кнопку при прокрутке
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+        
+        // Плавная прокрутка наверх
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Добавляем кнопку только на мобильных устройствах
+    if (window.innerWidth <= 768) {
+        addScrollTopButton();
+    }
+    
+    // При изменении ориентации - проверяем
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 768 && !document.querySelector('.scroll-top-btn')) {
+            addScrollTopButton();
+        }
+    });
 });

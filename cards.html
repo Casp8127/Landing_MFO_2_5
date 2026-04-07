@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Сравните лучшие кредитные и дебетовые карты банков России. Кэшбэк, проценты на остаток, бесплатное обслуживание.">
+    <title>Кредитные и дебетовые карты | Сравнение лучших карт 2026 | Деньги сразу</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="kraska.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-symbol"></div>
+                    <div class="logo-text">Деньги<span>сразу</span></div>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">📱 Займы онлайн</a></li>
+                        <li><a href="cards.html" class="active">💳 Кредитные и дебетовые карты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="cards-hero">
+        <div class="container">
+            <h1>Кредитные и дебетовые карты</h1>
+            <p>Сравните лучшие предложения от ведущих банков России. Выберите карту с максимальным кэшбэком, выгодными процентами и бесплатным обслуживанием.</p>
+        </div>
+    </section>
+
+    <!-- ФИЛЬТРЫ -->
+    <div class="container">
+        <div class="card-filters">
+            <button class="filter-btn active" data-filter="all">Все карты</button>
+            <button class="filter-btn" data-filter="debit">💳 Дебетовые</button>
+            <button class="filter-btn" data-filter="credit">🏦 Кредитные</button>
+            <button class="filter-btn" data-filter="premium">✨ Премиальные</button>
+        </div>
+    </div>
+
+    <!-- КАРТОЧКИ КАРТ -->
+    <section class="offers" style="margin-top: 0;">
+        <div class="container">
+            <div class="cards-grid" id="cardsGrid">
+                <!-- КАРТОЧКА 1: Тинькофф Блэк - Дебетовая -->
+                <div class="card-item" data-type="debit">
+                    <div class="card-image">
+                        <img src="/imeges/image.png" alt="Tinkoff Black карта" onerror="this.src='https://via.placeholder.com/300x200/4A7BFF/white?text=Tinkoff+Black'">
+                        <span class="card-badge debit">Дебетовая</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Tinkoff Black</h3>
+                        <span class="card-bank">Тинькофф Банк</span>
+                        <p class="card-description">Лучшая дебетовая карта с кэшбэком рублями и процентами на остаток.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-percentage"></i> Кэшбэк до 30% у партнеров</li>
+                            <li><i class="fas fa-chart-line"></i> 5-15% на остаток</li>
+                            <li><i class="fas fa-wifi"></i> Бесплатное обслуживание</li>
+                            <li><i class="fas fa-globe"></i> Бесплатные переводы</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate"><span>0 ₽</span> / обслуживание</div>
+                            <a href="https://www.tinkoff.ru/bank/cards/debit-cards/tinkoff-black/?erid=2W5zFHDhRjW" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 2: Альфа-Банк 100 дней - Кредитная -->
+                <div class="card-item" data-type="credit">
+                    <div class="card-image">
+                        <img src="https://alfabank.ru/static/images/cards/credit/100-days.png" alt="Альфа-Банк 100 дней карта" onerror="this.src='https://via.placeholder.com/300x200/FF6B57/white?text=Альфа-Банк'">
+                        <span class="card-badge credit">Кредитная</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">100 дней без %</h3>
+                        <span class="card-bank">Альфа-Банк</span>
+                        <p class="card-description">Кредитная карта с длительным грейс-периодом и высоким лимитом.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-calendar-alt"></i> 100 дней без процентов</li>
+                            <li><i class="fas fa-ruble-sign"></i> Лимит до 300 000 ₽</li>
+                            <li><i class="fas fa-percentage"></i> Кэшбэк до 5%</li>
+                            <li><i class="fas fa-mobile-alt"></i> Мобильное приложение</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate">от <span>590 ₽</span> / год</div>
+                            <a href="https://alfabank.ru/cards/credit/100-days/?erid=2W5zFHrbj4C" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 3: СберКарта - Дебетовая -->
+                <div class="card-item" data-type="debit">
+                    <div class="card-image">
+                        <img src="https://www.sberbank.ru/upload/iblock/5c1/sbercard.png" alt="СберКарта" onerror="this.src='https://via.placeholder.com/300x200/5CB85C/white?text=СберКарта'">
+                        <span class="card-badge debit">Дебетовая</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">СберКарта</h3>
+                        <span class="card-bank">Сбербанк</span>
+                        <p class="card-description">Самая популярная дебетовая карта России с бонусной программой.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-percentage"></i> Кэшбэк 5% бонусами</li>
+                            <li><i class="fas fa-coins"></i> Проценты на остаток до 8%</li>
+                            <li><i class="fas fa-robot"></i> СберПрайм в подарок</li>
+                            <li><i class="fas fa-shield-alt"></i> Бесплатное страхование</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate">от <span>0 ₽</span> / год</div>
+                            <a href="https://www.sberbank.ru/ru/person/bank_cards/debit/sbercard?erid=LjN8KKWo5" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 4: ВТБ Карта Мир - Дебетовая -->
+                <div class="card-item" data-type="debit">
+                    <div class="card-image">
+                        <img src="https://www.vtb.ru/static/img/cards/mir.png" alt="ВТБ Карта Мир" onerror="this.src='https://via.placeholder.com/300x200/4A7BFF/white?text=ВТБ+Мир'">
+                        <span class="card-badge debit">Дебетовая</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Карта Мир</h3>
+                        <span class="card-bank">ВТБ</span>
+                        <p class="card-description">Универсальная карта с кэшбэком и бесплатным обслуживанием.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-percentage"></i> Кэшбэк до 10%</li>
+                            <li><i class="fas fa-chart-line"></i> 5% на остаток</li>
+                            <li><i class="fas fa-plane"></i> Мили до 2%</li>
+                            <li><i class="fas fa-headset"></i> 24/7 поддержка</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate"><span>0 ₽</span> / обслуживание</div>
+                            <a href="https://www.vtb.ru/personal/karty/debetovaya-mir/?erid=2W5zFHwA2h6" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 5: Газпромбанк Benefit - Кредитная -->
+                <div class="card-item" data-type="credit">
+                    <div class="card-image">
+                        <img src="https://www.gazprombank.ru/upload/iblock/cards/benefit.png" alt="Газпромбанк Benefit" onerror="this.src='https://via.placeholder.com/300x200/FFB74D/white?text=Газпромбанк'">
+                        <span class="card-badge credit">Кредитная</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Benefit</h3>
+                        <span class="card-bank">Газпромбанк</span>
+                        <p class="card-description">Премиальная кредитная карта с максимальным кэшбэком.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-percentage"></i> Кэшбэк до 15%</li>
+                            <li><i class="fas fa-calendar-alt"></i> 60 дней без %</li>
+                            <li><i class="fas fa-ruble-sign"></i> Лимит до 500 000 ₽</li>
+                            <li><i class="fas fa-ticket-alt"></i> Билеты в театр 2х1</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate">от <span>990 ₽</span> / год</div>
+                            <a href="https://www.gazprombank.ru/personal/cards/credit/benefit/?erid=2W5zFGRMz5N" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 6: Райффайзенбанк #ВсеСразу - Дебетовая -->
+                <div class="card-item" data-type="debit">
+                    <div class="card-image">
+                        <img src="https://www.raiffeisen.ru/upload/cards/all-in-one.png" alt="Райффайзенбанк ВсеСразу" onerror="this.src='https://via.placeholder.com/300x200/5CB85C/white?text=Райффайзенбанк'">
+                        <span class="card-badge debit">Дебетовая</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">#ВсеСразу</h3>
+                        <span class="card-bank">Райффайзенбанк</span>
+                        <p class="card-description">Высокий кэшбэк на все покупки и проценты на остаток.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-percentage"></i> Кэшбэк 2-10%</li>
+                            <li><i class="fas fa-chart-line"></i> 7% на остаток</li>
+                            <li><i class="fas fa-luggage-cart"></i> Страховка путешествий</li>
+                            <li><i class="fas fa-wifi"></i> Бесплатные переводы</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate"><span>0 ₽</span> / обслуживание</div>
+                            <a href="https://www.raiffeisen.ru/personal/cards/debit/all-in-one/?erid=LjN8KN99W" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 7: Открытие OpenCard - Премиальная -->
+                <div class="card-item" data-type="premium">
+                    <div class="card-image">
+                        <img src="https://www.open.ru/upload/cards/opencard.png" alt="Открытие OpenCard" onerror="this.src='https://via.placeholder.com/300x200/FFB74D/white?text=Открытие'">
+                        <span class="card-badge premium">Премиальная</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">OpenCard</h3>
+                        <span class="card-bank">Банк Открытие</span>
+                        <p class="card-description">Премиальная карта с максимальными привилегиями.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-percentage"></i> Кэшбэк до 25%</li>
+                            <li><i class="fas fa-chart-line"></i> 10% на остаток</li>
+                            <li><i class="fas fa-lounge"></i> Приоритетный паспорт</li>
+                            <li><i class="fas fa-shield-alt"></i> Страховка до 100 000$</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate">от <span>2490 ₽</span> / год</div>
+                            <a href="https://www.open.ru/cards/opencard?erid=2W5zFHDhRjW" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КАРТОЧКА 8: МТС Банк Cashback - Кредитная -->
+                <div class="card-item" data-type="credit">
+                    <div class="card-image">
+                        <img src="https://www.mtsbank.ru/upload/cards/cashback.png" alt="МТС Банк Cashback" onerror="this.src='https://via.placeholder.com/300x200/4A7BFF/white?text=МТС+Банк'">
+                        <span class="card-badge credit">Кредитная</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">МТС Cashback</h3>
+                        <span class="card-bank">МТС Банк</span>
+                        <p class="card-description">Кредитка с высоким кэшбэком и бесплатным обслуживанием.</p>
+                        <ul class="card-features">
+                            <li><i class="fas fa-percentage"></i> Кэшбэк до 15%</li>
+                            <li><i class="fas fa-calendar-alt"></i> 110 дней без %</li>
+                            <li><i class="fas fa-tv"></i> Кэшбэк на связь</li>
+                            <li><i class="fas fa-mobile-alt"></i> Мобильное приложение</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="card-rate"><span>0 ₽</span> / обслуживание</div>
+                            <a href="https://www.mtsbank.ru/cards/credit/mts-cashback/?erid=2W5zFHwA2h6" target="_blank" rel="noopener noreferrer" class="card-btn-small">Оформить →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СРАВНИТЕЛЬНАЯ ТАБЛИЦА -->
+    <section class="features" style="margin-top: 20px;">
+        <div class="container">
+            <h2>Сравнение карт</h2>
+            <p class="section-subtitle">Выберите лучшую карту по ключевым параметрам</p>
+            
+            <div class="compare-table">
+                <table>
+                    <thead>
+                        <tr><th>Банк</th><th>Карта</th><th>Тип</th><th>Кэшбэк</th><th>Обслуживание</th>
+                    </thead>
+                    <tbody>
+                        <tr><td><div class="bank-logo">🏦 Тинькофф</div></td><td>Tinkoff Black</td><td>Дебетовая</td><td>до 30%</td><td>0 ₽</td>
+                        <tr><td><div class="bank-logo">🏦 Альфа-Банк</div></td><td>100 дней</td><td>Кредитная</td><td>до 5%</td><td>590 ₽</td>
+                        <tr><td><div class="bank-logo">🏦 Сбербанк</div></td><td>СберКарта</td><td>Дебетовая</td><td>до 5%</td><td>0 ₽</td>
+                        <tr><td><div class="bank-logo">🏦 ВТБ</div></td><td>Карта Мир</td><td>Дебетовая</td><td>до 10%</td><td>0 ₽</td>
+                        <tr><td><div class="bank-logo">🏦 Газпромбанк</div></td><td>Benefit</td><td>Кредитная</td><td>до 15%</td><td>990 ₽</td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+        <!-- ============================================
+         FOOTER - ЕДИНЫЙ СТИЛЬ С ГЛАВНОЙ СТРАНИЦЕЙ
+         ============================================ -->
+     <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo"><div class="footer-logo-symbol"></div><div class="footer-logo-text">Деньги<span>сразу</span></div></div>
+                    <p class="footer-tagline">Помогаем выбрать лучшие финансовые продукты: займы, кредитные и дебетовые карты.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Информация</h5>
+                    <ul><li><a>Изучите все условия на сайте банка-партнера. Нажатие на кнопки не накладывает обязательств.</a></li></ul>
+                </div>
+            </div>
+            <div class="legal"><p>Предложение не является офертой. Процентные ставки и условия уточняйте на сайте партнёра.</p><p>&copy;2026 Деньги сразу. Все права защищены.</p></div>
+        </div>
+    </footer>
+
+    <script src="anima.js"></script>
+    <script>
+        // Фильтрация карт
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.type === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 200);
+                    }
+                });
+            });
+        });
+        
+        // Трекинг кликов по картам
+        document.querySelectorAll('.card-btn-small').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = btn.closest('.card-item');
+                const cardName = card?.querySelector('.card-title')?.innerText || 'Unknown';
+                console.log(`Клик по карте: ${cardName}`);
+                // Здесь можно добавить отправку в аналитику
+            });
+        });
+    </script>
+</body>
+</html>
