@@ -16,9 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Подключение внешнего CSS файла -->
     <link rel="stylesheet" href="/kraska.css">
-     <!-- ============================================
-         HEADER SECTION - ИЗМЕНЕНО: добавлена навигация
-         ============================================ -->
+
     <header class="site-header">
         <div class="container">
             <div class="header-wrapper">
@@ -29,8 +27,8 @@
                 <!-- НОВОЕ: Навигационное меню -->
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="index.html" class="active">📱 Займы онлайн</a></li>
-                        <li><a href="cards.html">💳 Кредитные и дебетовые карты</a></li>
+                        <li><a href="index.html" class="active"> Займы онлайн</a></li>
+                        <li><a href="cards.html"> Кредитные и дебетовые карты</a></li>
                     </ul>
                 </nav>
             </div>
@@ -39,10 +37,7 @@
 </head>
 <body>
 
-    <!-- ============================================
-         HERO SECTION
-         Главная секция с H1 заголовком
-         ============================================ -->
+
        <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -53,115 +48,132 @@
             </div>
         </div>
     </section>
-    <!-- ============================================
-         OFFERS SECTION
-         Секция с предложениями МФО
-         ============================================ -->
+
+
     <section id="offers" class="offers">
         <div class="container">
             <h2>Лучшие предложения от партнёров</h2>
             <p class="section-subtitle">Мы сотрудничаем только с проверенными МФО и МКК, зарегистрированными в реестре ЦБ РФ. Каждое предложение проходит проверку на соответствие законодательству РФ о потребительском кредитовании.</p>
             
-            <div class="offers-grid">
+                                               <div class="offers-grid">
                 <article class="offer-card">
-                    <div class="offer-card-header">
-                        <h3>Skela Money</h3>
-                        <span class="offer-badge">Первый займ под 0%</span> 
+                    <div class="offer-logo-full">
+                        <img src="/imeges_index/skela_logo2.jpg" alt="Skela Money" class="offer-logo-full-img">
                     </div>
-                    <ul class="offer-details">
-                        <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span> 1 - 100 тыс. ₽</span></li>
-                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>1 - 365 дней</span></li>
-                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>0.8% в день</span></li>
-                        <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>5-15 минут</span></li>
-                    </ul>
-                    <!-- ИСПРАВЛЕНА КНОПКА: РАБОТАЮЩАЯ ССЫЛКА С АТРИБУТАМИ БЕЗОПАСНОСТИ -->
-                    <a href="https://t.fincpanetwork.ru/click/36707/295/?erid=2W5zFHDhRjW" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    <div class="offer-card-content">
+                        <div class="offer-card-header">
+                            <h3>Skela Money</h3>
+                            <span class="offer-badge">Первый займ под 0%</span>
+                        </div>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>1 - 100 тыс. ₽</span></li>
+                            <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>1 - 365 дней</span></li>
+                            <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong> Ставка:</strong> <span>0.8% в день</span></li>
+                            <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>5-15 минут</span></li>
+                        </ul>
+                        <a href="https://t.fincpanetwork.ru/click/36707/295/?erid=2W5zFHDhRjW" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    </div>
                 </article>
                 
                 <article class="offer-card">
-                    <div class="offer-card-header">
-                        <h3>Лига МФО</h3>
-                        <span class="offer-badge">Быстрые решение</span> 
+                    <div class="offer-logo-full">
+                        <img src="/imeges_index/liga_mfo.png" alt="Лига МФО" class="offer-logo-full-img">
                     </div>
-                    <ul class="offer-details">
-                        <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>3 – 100 тыс. ₽</span></li>
-                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>30 – 180 дней</span></li>
-                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>0,082 – 0,8%</span></li>
-                        <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>3-10 минут</span></li>
-                    </ul>
-                    <!-- ИСПРАВЛЕНА КНОПКА: РАБОТАЮЩАЯ ССЫЛКА С АТРИБУТАМИ БЕЗОПАСНОСТИ -->
-                    <a href="https://t.fincpanetwork.ru/click/36707/374/?erid=2W5zFHrbj4C" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    <div class="offer-card-content">
+                        <div class="offer-card-header">
+                            <h3>Лига МФО</h3>
+                            <span class="offer-badge">Быстрое решение</span>
+                        </div>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>3 – 100 тыс. ₽</span></li>
+                            <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>30 – 180 дней</span></li>
+                            <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Ставка:</strong> <span>0,082 – 0,8%</span></li>
+                            <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>3-10 минут</span></li>
+                        </ul>
+                        <a href="https://t.fincpanetwork.ru/click/36707/374/?erid=2W5zFHrbj4C" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    </div>
                 </article>
                 
                 <article class="offer-card">
-                    <div class="offer-card-header">
-
-                        <h3>Vivus</h3>
-                        <span class="offer-badge">7 дней без процентов</span> 
-                    
+                    <div class="offer-logo-full">
+                        <img src="/imeges_index/vivus1.svg" alt="Vivus" class="offer-logo-full-img">
                     </div>
-                    <ul class="offer-details">
-                        <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>1 – 30 тыс. ₽</span></li>
-                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>1 – 32 дней</span></li>
-                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>0 – 0,8%</span></li>
-                        <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>10-20 минут</span></li>
-                    </ul>
-                    <!-- ИСПРАВЛЕНА КНОПКА: РАБОТАЮЩАЯ ССЫЛКА С АТРИБУТАМИ БЕЗОПАСНОСТИ -->
-                    <a href="https://t.fincpanetwork.ru/click/36707/133/?erid=LjN8KKWo5" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    <div class="offer-card-content">
+                        <div class="offer-card-header">
+                            <h3>Vivus</h3>
+                            <span class="offer-badge">7 дней без процентов</span>
+                        </div>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>1 – 30 тыс. ₽</span></li>
+                            <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>1 – 32 дней</span></li>
+                            <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Ставка:</strong> <span>0 – 0,8%</span></li>
+                            <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>10-20 минут</span></li>
+                        </ul>
+                        <a href="https://t.fincpanetwork.ru/click/36707/133/?erid=LjN8KKWo5" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    </div>
                 </article>
 
                 <article class="offer-card">
-                    <div class="offer-card-header">
-                        <h3>Займер</h3>
-                        <span class="offer-badge">Первый заём без процентов</span>
+                    <div class="offer-logo-full">
+                        <img src="/imeges_index/zaymer_logo.png" alt="Займер" class="offer-logo-full-img">
                     </div>
-                    <ul class="offer-details">
-                        <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>2 – 30 тыс. ₽</span></li>
-                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>7 – 30 дней</span></li>
-                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>0 – 0,8%</span></li>
-                        <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>3-10 минут</span></li>
-                    </ul>
-                    <!-- ИСПРАВЛЕНА КНОПКА: РАБОТАЮЩАЯ ССЫЛКА С АТРИБУТАМИ БЕЗОПАСНОСТИ -->
-                    <a href="https://t.fincpanetwork.ru/click/36707/15/?erid=2W5zFHwA2h6" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    <div class="offer-card-content">
+                        <div class="offer-card-header">
+                            <h3>Займер</h3>
+                            <span class="offer-badge">Первый займ без %</span>
+                        </div>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>2 – 30 тыс. ₽</span></li>
+                            <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>7 – 30 дней</span></li>
+                            <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Ставка:</strong> <span>0 – 0,8%</span></li>
+                            <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>3-10 минут</span></li>
+                        </ul>
+                        <a href="https://t.fincpanetwork.ru/click/36707/15/?erid=2W5zFHwA2h6" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    </div>
                 </article>
 
                 <article class="offer-card">
-                    <div class="offer-card-header">
-                        <h3>Финмолл</h3>
-                        <span class="offer-badge">Одобрениие клиентам 98%</span> 
+                    <div class="offer-logo-full">
+                        <img src="/imeges_index/finmall_logo.png" alt="Финмолл" class="offer-logo-full-img">
                     </div>
-                    <ul class="offer-details">
-                        <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>35 – 60 тыс. ₽</span></li>
-                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span> 50 дней</span></li>
-                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>0,49 – 0,69%</span></li>
-                        <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>1-5 минут</span></li>
-                    </ul>
-                    <!-- ИСПРАВЛЕНА КНОПКА: РАБОТАЮЩАЯ ССЫЛКА С АТРИБУТАМИ БЕЗОПАСНОСТИ -->
-                    <a href="https://t.fincpanetwork.ru/click/36707/54/?erid=2W5zFGRMz5N" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    <div class="offer-card-content">
+                        <div class="offer-card-header">
+                            <h3>Финмолл</h3>
+                            <span class="offer-badge">Одобрение 98%</span>
+                        </div>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>35 – 60 тыс. ₽</span></li>
+                            <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>350 дней</span></li>
+                            <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Ставка:</strong> <span>0,49 – 0,69%</span></li>
+                            <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>1-5 минут</span></li>
+                        </ul>
+                        <a href="https://t.fincpanetwork.ru/click/36707/54/?erid=2W5zFGRMz5N" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    </div>
                 </article>
 
                 <article class="offer-card">
-                    <div class="offer-card-header">
-                        <h3>Max.Credit</h3>
-                        <span class="offer-badge">Первый заём под 0%</span>
+                    <div class="offer-logo-full">
+                        <img src="/imeges_index/max.credit_logo.png" alt="Max.Credit" class="offer-logo-full-img">
                     </div>
-                    <ul class="offer-details">
-                        <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>5 – 30 тыс. ₽</span></li>
-                        <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>3 – 30 дней</span></li>
-                        <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Полная стоимость займа:</strong> <span>от 0,8%</span></li>
-                        <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>7-15 минут</span></li>
-                    </ul>
-                    <!-- ИСПРАВЛЕНА КНОПКА: РАБОТАЮЩАЯ ССЫЛКА С АТРИБУТАМИ БЕЗОПАСНОСТИ -->
-                    <a href="https://t.fincpanetwork.ru/click/36707/106/?erid=LjN8KN99W" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    <div class="offer-card-content">
+                        <div class="offer-card-header">
+                            <h3>Max.Credit</h3>
+                            <span class="offer-badge">Первый займ под 0%</span>
+                        </div>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-ruble-sign" aria-hidden="true"></i> <strong>Сумма:</strong> <span>3 – 30 тыс. ₽</span></li>
+                            <li><i class="far fa-calendar-alt" aria-hidden="true"></i> <strong>Срок:</strong> <span>5 – 30 дней</span></li>
+                            <li><i class="fas fa-percentage" aria-hidden="true"></i> <strong>Ставка:</strong> <span>0,8%</span></li>
+                            <li><i class="fas fa-bolt" aria-hidden="true"></i> <strong>Рассмотрение:</strong> <span>7-15 минут</span></li>
+                        </ul>
+                        <a href="https://t.fincpanetwork.ru/click/36707/106/?erid=LjN8KN99W" target="_blank" rel="noopener noreferrer" class="btn offer-btn">Получить займ</a>
+                    </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         STEPS SECTION
-         Секция "Как получить деньги"
-         ============================================ -->
+
     <section class="steps">
         <div class="container">
             <h2>Как получить деньги через наш сервис</h2>
@@ -190,10 +202,6 @@
     </section>
 
 
-    <!-- ============================================
-         FEATURES SECTION
-         Секция преимуществ
-         ============================================ -->
     <section class="features">
         <div class="container">
             <h2>Наши принципы партнёрства</h2>
@@ -227,10 +235,7 @@
         </div>
     </section>
 
-    <!-- ============================================
-         BASIC QUESTIONS SECTION
-         Блок основных вопросов
-         ============================================ -->
+
     <section class="basic-questions">
         <div class="container">
             <h2>Основные вопросы о займах</h2>
@@ -263,10 +268,8 @@
             </div>
         </div>
     </section>
-    <!-- ============================================
-         FOOTER
-         Подвал сайта - единый стиль
-         ============================================ -->
+
+
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -279,11 +282,6 @@
                     <p class="footer-description">
                         Сервис по подбору финансовых продуктов: займы, кредитные и дебетовые карты от проверенных банков и МФО.
                     </p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
                 </div>
 
                 <!-- Колонка 2: Продукты -->
@@ -293,120 +291,33 @@
                         <li><a href="index.html">Займы онлайн</a></li>
                         <li><a href="cards.html">Дебетовые карты</a></li>
                         <li><a href="cards.html">Кредитные карты</a></li>
-                        <li><a href="#">Рефинансирование</a></li>
                     </ul>
                 </div>
-
-                <!-- Колонка 3: О сервисе -->
-                <div class="footer-col">
-                    <h4>О сервисе</h4>
-                    <ul>
-                        <li><a href="#">О компании</a></li>
-                        <li><a href="#">Партнерам</a></li>
-                        <li><a href="#">Вопросы и ответы</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                </div>
-
-                <!-- Колонка 4: Контакты -->
-                <div class="footer-col">
-                    <h4>Контакты</h4>
-                    <ul class="footer-contacts">
-                        <li><i class="fas fa-phone"></i> <a href="tel:88007007700">8 (800) 700-77-00</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:support@dengisrazu.ru">support@dengisrazu.ru</a></li>
-                        <li><i class="fas fa-clock"></i> Ежедневно: 24/7</li>
-                    </ul>
-                </div>
-            </div>
 
             <!-- Юридическая информация -->
+         
             <div class="footer-legal">
                 <div class="legal-text">
                     <p>Предложение не является офертой. Процентные ставки и условия уточняйте на сайте партнёра. Сервис предоставляет информацию о финансовых продуктах и не является кредитной организацией.</p>
                     <p class="legal-organizations">
-                        Партнёры: ООО МКК «Алистар» (ИНН 9704249544), ООО МКК «ТРАСТ АЛЬЯНС» (ИНН 7714342034), 
-                        ООО МКК «АМСТЕРДАМ» (ИНН 9721050950), ООО МКК «АТЛАС» (ИНН 9714024758), 
-                        ООО МКК «СМСФИНАНС» (ИНН 7724351447), ПАО МФК «Займер» (ИНН 5406836941), 
-                        ООО «ФИНМОЛЛ» (ИНН 7705954143), ООО МКК «М-ДЕНЬГИ» (ИНН 9703151232).
+                        Представленные организации:
+                       <p class="legal-organizations"> ООО МКК «Алистар» ИНН 9704249544 ОГРН 1247700596659</p>
+                       <p class="legal-organizations"> ООО МКК «Траст Альянс» ИНН: 7714342034 ОГРН: 1157746495389 </p>
+                       <p class="legal-organizations"> ООО МКК «СМСФИНАНС» ИНН: 7724351447 ОГРН: 1167746117483 </p>
+                       <p class="legal-organizations">ПАО МКК «Займер» ИНН: 5406836941 ОГРН: 1235400049356 </p>
+                       <p class="legal-organizations"> ООО МКК «ФИНМОЛЛ» ИНН: 7705954143 ОГРН: 1117746509638 </p>
+                       <p class="legal-organizations">ООО МКК «М-ДЕНЬГИ» ИНН: 9703151232 ОГРН: 1237700493216 </p>
                     </p>
                 </div>
+           
                 <div class="legal-copyright">
                     <p>© 2026 Деньги сразу. Все права защищены.</p>
-                    <p><a href="#">Политика конфиденциальности</a> | <a href="#">Пользовательское соглашение</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- ============================================
-         FOOTER
-         Подвал сайта
-         ============================================ -->
-   <!-- <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">
-                        <div class="footer-logo-symbol"></div>
-                        <div class="footer-logo-text">Деньги<span>сразу</span></div>
-                    </div>
-                    <p class="footer-tagline">Мы создаём партнёрство между клиентами и финансовыми организациями, обеспечивая быстрый доступ к денежным средствам на прозрачных условиях. Наша миссия — сделать процесс получения займа простым, быстрым и безопасным для каждого.</p>
-                </div>
-                
-                <div class="footer-contact">
-                    <h5>Контакты</h5>
-                    <p><i class="fas fa-phone" aria-hidden="true"></i> 8 (800) 700-77-00</p>
-                    <p><i class="far fa-clock" aria-hidden="true"></i> с 06:00 до 22:00 (МСК)</p>
-                    <p><i class="fas fa-envelope" aria-hidden="true"></i> support@dengisrazu.ru</p>
-                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Москва, ул. Партнёрская, 10</p>
-                </div>
-            -->
-                
-               <!-- <div class="footer-links">
-                    <h5>Информация</h5>
-                    <ul>
-                        <li><a>Правовая информация</a></li>
-                        <a>Изучите все условия займа на сайте или сайте партнера. Оценивайте свои финансовые возможности и риски. Нажатие на кнопки "Получить деньги", а также последующее заполнение тех или иных форм, не накладывает на владельцев сайта никаких обязательств.</a>
-                        
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="legal"> 
-                <p>ООО МКК «Деньги сразу». Рег. номер: 2203045009821. ИНН: 7708400979. ОГРН: 1217700636944.</p> 
-                <p>Предложение не является офертой. Кредитор принимает решение на основе ваших данных. Процентные ставки и условия уточняйте на сайте партнёра. Сервис предоставляет информацию о финансовых продуктах и не является кредитной организацией.</p>
-                <p>"ООО МКК «Алистар». ИНН 9704249544. ОГРН 1247700596659.
-Реестр субъектов микрофинансирования
-Регистрационный номер записи в государственном реестре микрофинансовых организаций - 24 030 45 010104, дата внесения - 25.10.2024 г."
-                </p>
-                <p> (ООО МКК «ТРАСТ АЛЬЯНС»)
-(ООО МКК «АМСТЕРДАМ»)
-(ООО МКК «АТЛАС»)
-7714342034 (ООО МКК «ТРАСТ АЛЬЯНС»)
-9721050950 (ООО МКК «АМСТЕРДАМ»)
-9714024758 (ООО МКК «АТЛАС»)
-1157746495389 (ООО МКК «ТРАСТ АЛЬЯНС»)
-1177746631050 (ООО МКК «АМСТЕРДАМ»)
-1237700750561 ((ООО МКК «АТЛАС»)"
-                </p>
-                <p>"(ООО МКК «СМСФИНАНС») — 7724351447, с КПП 774301001, 
-ОГРН: 1167746117483"
-                </p>
-                <p>Публичное акционерное общество микрофинансовая компания «Займер». ИНН 5406836941; КПП 540601001 ОГРН 1235400049356; ОКПО 16386906
-                </p>
-                <p>
-                    ООО «ФИНМОЛЛ» — 
-ИНН: 7705954143
-ОГРН: 1117746509638
-Полное наименование: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ МИКРОКРЕДИТНАЯ КОМПАНИЯ «ФИНМОЛЛ»
-
-                </p>
-                <p>Общество с ограниченной ответственностью Микрокредитная компания «М-ДЕНЬГИ» (ООО МКК «М-ДЕНЬГИ»): ИНН 9703151232, ОГРН 1237700493216
-                </p>
-                <p style="margin-top: 20px; color: #A0988C;">&copy;2026 Деньги сразу. Все права защищены.</p>
-            </div>
-        </div>
-    </footer> -->
+   
     <!-- Подключение внешнего JavaScript файла -->
     <script src="anima.js">
 

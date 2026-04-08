@@ -511,142 +511,6 @@ p {
 }
 
 /* ============================================
-   REVIEWS SECTION
-   Секция отзывов с улучшенной функциональностью
-   ============================================ */
-.reviews {
-    background-color: white;
-    border-radius: 20px;
-    border: 2px solid rgba(240, 237, 232, 0.8);
-    box-shadow: var(--shadow-medium);
-    margin-top: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
-    gap: clamp(20px, 3vw, 30px);
-    margin-top: 1.5rem;
-}
-
-.review-card {
-    background: linear-gradient(135deg, rgba(250, 249, 247, 0.9), rgba(255, 255, 255, 0.95));
-    border-radius: var(--border-radius);
-    padding: clamp(20px, 3.5vw, 30px);
-    box-shadow: var(--shadow-light);
-    border: 2px solid rgba(240, 237, 232, 0.8);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.review-card::before {
-    content: '"';
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 4rem;
-    color: rgba(255, 107, 87, 0.1);
-    font-family: serif;
-    line-height: 1;
-    opacity: 0.7;
-}
-
-.review-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
-    border-color: rgba(92, 184, 92, 0.3);
-}
-
-.review-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.2rem;
-}
-
-.review-avatar {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--coral), var(--warm-blue));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-right: 12px;
-    flex-shrink: 0;
-    box-shadow: var(--shadow-light);
-}
-
-.review-info h4 {
-    margin-bottom: 4px;
-    color: var(--neutral-dark);
-    font-size: 1.1rem;
-}
-
-.review-date {
-    font-size: 0.8rem;
-    color: #8A8278;
-}
-
-.review-rating {
-    color: #FFB74D;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.review-text {
-    line-height: 1.7;
-    color: var(--neutral-text);
-    font-style: italic;
-    font-size: 0.95rem;
-}
-
-/* Скрытые отзывы */
-.reviews-hidden {
-    display: none;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.reviews-hidden.show {
-    display: grid;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Кнопка показать/скрыть отзывы */
-.reviews-toggle {
-    display: block;
-    margin: 35px auto 0;
-    background: linear-gradient(135deg, var(--warm-blue), var(--warm-blue-dark));
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    min-width: 250px;
-}
-
-.reviews-toggle:hover {
-    transform: translateY(-3px);
-}
-
-.reviews-toggle i {
-    margin-left: 8px;
-    transition: var(--transition);
-    font-size: 0.9em;
-}
-
-.reviews-toggle.expanded i {
-    transform: rotate(180deg);
-}
-
-/* ============================================
    FEATURES SECTION
    Секция преимуществ
    ============================================ */
@@ -835,16 +699,46 @@ p {
     transform: rotate(45deg);
     color: var(--coral-dark);
 }
-
 /* ============================================
-   FOOTER - ЕДИНЫЙ СТИЛЬ
+   FOOTER - НА ВСЮ ШИРИНУ ЭКРАНА
    ============================================ */
+
+/* Общие настройки для html и body */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Основной контент - растягивается между header и footer */
+main, .main-content {
+    flex: 1 0 auto;
+}
+
 footer {
     background: linear-gradient(135deg, #2C2823, #1E1B18);
     color: #E8E4DD;
     padding: 50px 0 30px;
     margin-top: 60px;
     position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+/* Убираем возможные отступы у контейнера внутри футера */
+footer .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 footer::before {
@@ -853,6 +747,7 @@ footer::before {
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     height: 4px;
     background: linear-gradient(90deg, var(--coral), var(--warm-blue), var(--soft-green));
 }
@@ -960,54 +855,12 @@ footer::before {
     margin-bottom: 20px;
 }
 
-/* Социальные иконки */
-.footer-social {
-    display: flex;
-    gap: 15px;
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: white;
-    font-size: 18px;
-    transition: var(--transition);
-}
 
 .footer-social a:hover {
     background: linear-gradient(135deg, var(--coral), var(--warm-blue));
     transform: translateY(-3px);
 }
 
-/* Контакты в футере */
-.footer-contacts li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    color: #C8C2B8;
-    font-size: 14px;
-}
-
-.footer-contacts i {
-    color: var(--coral);
-    width: 20px;
-    font-size: 16px;
-}
-
-.footer-contacts a {
-    color: #C8C2B8;
-    text-decoration: none;
-}
-
-.footer-contacts a:hover {
-    color: var(--coral);
-}
 
 /* Юридический блок */
 .footer-legal {
@@ -2150,5 +2003,216 @@ footer::before {
     body {
         overflow-x: hidden;
         position: relative;
+    }
+}
+
+/* ============================================
+   КАРТОЧКИ ОФФЕРОВ - ЛОГО ВО ВСЮ ШИРИНУ
+   ============================================ */
+
+.offer-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.offer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+/* Логотип во всю ширину */
+.offer-logo-full {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
+}
+
+.offer-logo-full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.offer-card:hover .offer-logo-full-img {
+    transform: scale(1.02);
+}
+
+/* Контент карточки */
+.offer-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Заголовок и бейдж */
+.offer-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.offer-card-header h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.offer-badge {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Детали */
+.offer-details {
+    list-style: none;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.offer-details li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.offer-details li:last-child {
+    border-bottom: none;
+}
+
+.offer-details i {
+    color: var(--accent-secondary);
+    width: 20px;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.offer-details strong {
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.offer-details span {
+    color: var(--text-secondary);
+    text-align: right;
+    margin-left: auto;
+}
+
+/* Кнопка */
+.offer-btn {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* ============================================
+   АДАПТИВ ДЛЯ КАРТОЧЕК С ЛОГО ВО ВСЮ ШИРИНУ
+   ============================================ */
+
+@media (max-width: 768px) {
+    .offer-logo-full {
+        height: 100px;
+    }
+    
+    .offer-card-content {
+        padding: 16px;
+    }
+    
+    .offer-card-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .offer-badge {
+        font-size: 0.65rem;
+        padding: 4px 10px;
+        white-space: normal;
+        text-align: center;
+    }
+    
+    .offer-details li {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .offer-details strong {
+        min-width: auto;
+    }
+    
+    .offer-details span {
+        margin-left: 0;
+        text-align: left;
+        flex: 1;
+    }
+}
+
+@media (max-width: 550px) {
+    .offer-logo-full {
+        height: 80px;
+    }
+    
+    .offer-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .offer-badge {
+        white-space: normal;
+        width: auto;
+    }
+    
+    .offer-details li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .offer-details strong {
+        min-width: auto;
+    }
+    
+    .offer-details span {
+        text-align: left;
+    }
+}
+
+@media (max-width: 380px) {
+    .offer-logo-full {
+        height: 70px;
+    }
+    
+    .offer-card-content {
+        padding: 14px;
+    }
+    
+    .offer-card-header h3 {
+        font-size: 1rem;
+    }
+    
+    .offer-details li {
+        font-size: 0.8rem;
     }
 }
